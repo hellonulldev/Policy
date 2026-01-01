@@ -23,15 +23,11 @@ Decision-making helper app
 Policy/
 ├── README.md                      # This file
 ├── index.html                     # Main page (app list)
-├── Indecisive/
-│   ├── index.html                 # Language selector
-│   ├── privacy-policy-ko.html     # Korean
-│   ├── privacy-policy-en.html     # English
-│   └── privacy-policy-ja.html     # Japanese
-├── TodoList/
-│   └── ...
-└── Timer/
-    └── ...
+└── Indecisive/
+    ├── index.html                 # Language selector
+    ├── privacy-policy-ko.html     # Korean
+    ├── privacy-policy-en.html     # English
+    └── privacy-policy-ja.html     # Japanese
 ```
 
 ## 🔄 How to Update
@@ -42,7 +38,7 @@ Policy/
 
 ## 📧 Contact
 
-**Developer:** NullDev (jhyoon2025)  
+**Developer:** NullDev  
 **Email:** hello.nulldev@gmail.com
 
 ## 📄 License

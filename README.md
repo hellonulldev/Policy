@@ -22,6 +22,11 @@ Minimal habit tracker focusing on just 3 habits
 - 🇺🇸 [English](https://hellonulldev.github.io/Policy/HabitThree/privacy-policy-en.html)
 - 🇯🇵 [日本語](https://hellonulldev.github.io/Policy/HabitThree/privacy-policy-ja.html)
 
+## 📲 Download Links
+
+- **Indecisive**: [Apple App Store](https://apps.apple.com/app/id6757303507)
+- **Three Habits**: [Apple App Store](https://apps.apple.com/app/id6757355894)
+
 ## 🌍 Multi-language Support
 
 The main index page now supports three languages:

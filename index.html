@@ -14,6 +14,40 @@
             color: #333;
             background-color: #f8f9fa;
         }
+
+        /* Language Selector */
+        .language-selector {
+            text-align: center;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            background: #5C6BC0;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .lang-btn:hover {
+            background: #3f51b5;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #3f51b5;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
         .header {
             text-align: center;
             margin-bottom: 60px;
@@ -66,6 +100,7 @@
             display: flex;
             gap: 8px;
             font-size: 12px;
+            flex-wrap: wrap;
         }
         .language-tag {
             background-color: #E8EAF6;
@@ -87,30 +122,24 @@
         .footer a:hover {
             text-decoration: underline;
         }
-        .coming-soon {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        .coming-soon:hover {
-            transform: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .badge {
-            display: inline-block;
-            background-color: #FFA726;
-            color: white;
-            font-size: 11px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-left: 8px;
-            font-weight: 600;
+
+        @media (max-width: 768px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="language-selector">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+    </div>
+
     <div class="header">
         <h1>NullDev</h1>
-        <p class="subtitle">Privacy Policies for All Apps</p>
+        <p class="subtitle" data-i18n="subtitle">Privacy Policies for All Apps</p>
     </div>
 
     <div class="apps-grid">
@@ -118,7 +147,10 @@
         <a href="Indecisive/" class="app-card">
             <div class="app-icon">🤔</div>
             <div class="app-name">Indecisive</div>
-            <div class="app-description">결정장애 / 優柔不断<br>Decision-making helper app</div>
+            <div class="app-description">
+                <span data-i18n="indecisive-local">결정장애 / 優柔不断</span><br>
+                <span data-i18n="indecisive-desc">Decision-making helper app</span>
+            </div>
             <div class="app-languages">
                 <span class="language-tag">🇰🇷 한국어</span>
                 <span class="language-tag">🇺🇸 English</span>
@@ -129,8 +161,11 @@
         <!-- HabitThree App -->
         <a href="HabitThree/" class="app-card">
             <div class="app-icon">✅</div>
-            <div class="app-name">Habit3 <span class="badge">Coming Soon</span></div>
-            <div class="app-description">3개의 습관 / 3つの習慣<br>Minimal habit tracker focusing on just 3 habits</div>
+            <div class="app-name" data-i18n="habitthree-name">Three Habits</div>
+            <div class="app-description">
+                <span data-i18n="habitthree-local">3개의 습관 / 3つの習慣</span><br>
+                <span data-i18n="habitthree-desc">Minimal habit tracker focusing on just 3 habits</span>
+            </div>
             <div class="app-languages">
                 <span class="language-tag">🇰🇷 한국어</span>
                 <span class="language-tag">🇺🇸 English</span>
@@ -141,12 +176,88 @@
 
     <div class="footer">
         <p><strong>NullDev</strong> © 2026</p>
-        <p>Contact: <a href="mailto:hello.nulldev@gmail.com">hello.nulldev@gmail.com</a></p>
+        <p><span data-i18n="contact">Contact</span>: <a href="mailto:hello.nulldev@gmail.com">hello.nulldev@gmail.com</a></p>
         <p style="margin-top: 20px; font-size: 12px;">
-            All apps are developed by NullDev<br>
-            Available on Google Play Store and Apple App Store
+            <span data-i18n="footer-text1">All apps are developed by NullDev</span><br>
+            <span data-i18n="footer-text2">Available on Google Play Store and Apple App Store</span>
         </p>
     </div>
+
+    <script>
+        const translations = {
+            en: {
+                'subtitle': 'Privacy Policies for All Apps',
+                'indecisive-local': '결정장애 / 優柔不断',
+                'indecisive-desc': 'Decision-making helper app',
+                'habitthree-name': 'Three Habits',
+                'habitthree-local': '3개의 습관 / 3つの習慣',
+                'habitthree-desc': 'Minimal habit tracker focusing on just 3 habits',
+                'contact': 'Contact',
+                'footer-text1': 'All apps are developed by NullDev',
+                'footer-text2': 'Available on Google Play Store and Apple App Store'
+            },
+            ko: {
+                'subtitle': '모든 앱의 개인정보처리방침',
+                'indecisive-local': '결정장애 / 優柔不断',
+                'indecisive-desc': '결정 도우미 앱',
+                'habitthree-name': '3개의 습관',
+                'habitthree-local': '3개의 습관 / 3つの習慣',
+                'habitthree-desc': '3가지 습관에 집중하는 미니멀 습관 트래커',
+                'contact': '문의',
+                'footer-text1': '모든 앱은 NullDev에서 개발되었습니다',
+                'footer-text2': 'Google Play 스토어 및 Apple 앱 스토어에서 이용 가능'
+            },
+            ja: {
+                'subtitle': 'すべてのアプリのプライバシーポリシー',
+                'indecisive-local': '결정장애 / 優柔不断',
+                'indecisive-desc': '決断サポートアプリ',
+                'habitthree-name': '3つの習慣',
+                'habitthree-local': '3개의 습관 / 3つの習慣',
+                'habitthree-desc': '3つの習慣に集中するミニマル習慣トラッカー',
+                'contact': 'お問い合わせ',
+                'footer-text1': 'すべてのアプリはNullDevによって開発されています',
+                'footer-text2': 'Google PlayストアとApple App Storeで利用可能'
+            }
+        };
+
+        // Language switching
+        const langButtons = document.querySelectorAll('.lang-btn');
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update active button
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update text content
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.dataset.lang);
+            });
+        });
+
+        // Load saved language preference or detect browser language
+        const savedLang = localStorage.getItem('preferredLanguage');
+        const browserLang = navigator.language.split('-')[0];
+        const initialLang = savedLang || (translations[browserLang] ? browserLang : 'en');
+        setLanguage(initialLang);
+    </script>
 </body>
 </html>
-
